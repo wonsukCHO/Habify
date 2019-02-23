@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backdrop"
+    tools:context=".WelcomeActivity">
+
+    <ph.edu.dlsu.ian_ona.habify.TitleTextView
+        android:id="@+id/titleTextView"
+        android:layout_width="278dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="91dp"
+        android:layout_marginStart="91dp"
+        android:layout_marginTop="214dp"
+        android:text="Hello there"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ph.edu.dlsu.ian_ona.habify.BodyTextView
+        android:id="@+id/textView2"
+        android:layout_width="250dp"
+        android:layout_height="111dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginStart="102dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/welcome_message"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@android:color/transparent"
+        android:onClick="getStarted"
+        android:text="Get Started"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

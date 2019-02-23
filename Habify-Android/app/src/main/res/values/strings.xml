@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Habify</string>
+
+    <string name="welcome_message">Habify is an application that caters to your well-being by helping you start habits that could benefit you based on your personality</string>
+</resources>

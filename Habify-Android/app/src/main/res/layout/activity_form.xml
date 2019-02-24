@@ -10,7 +10,7 @@
     <ph.edu.dlsu.ian_ona.habify.BodyTextView
         android:id="@+id/questionTextView"
         android:layout_width="335dp"
-        android:layout_height="100dp"
+        android:layout_height="70dp"
         android:layout_marginEnd="32dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="220dp"
@@ -71,7 +71,6 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"

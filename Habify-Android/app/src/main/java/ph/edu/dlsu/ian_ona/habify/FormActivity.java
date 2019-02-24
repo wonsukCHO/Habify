@@ -3,9 +3,11 @@ package ph.edu.dlsu.ian_ona.habify;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,12 +37,26 @@ public class FormActivity extends AppCompatActivity {
         choices.setVisibility(View.INVISIBLE);
         textInput.setVisibility(View.INVISIBLE);
 
+        choices.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView) view).setTextColor(Color.WHITE);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
         questions = new ArrayList<>();
         initializeQuestions();
         current = 0;
 
         updateQuestion();
     }
+
+
 
     public void updateQuestion() {
         question.setText(questions.get(current).getQuestion());
@@ -96,7 +112,7 @@ public class FormActivity extends AppCompatActivity {
         }
 
         if (current == questions.size() - 1) {
-            SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+            SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preferences), Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
             int mScore = 0;
             int sScore = 0;
@@ -338,6 +354,8 @@ public class FormActivity extends AppCompatActivity {
             this.type = type;
         }
     }
+
+
 
 
 }

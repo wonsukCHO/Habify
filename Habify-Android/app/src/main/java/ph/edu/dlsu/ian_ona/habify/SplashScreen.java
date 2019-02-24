@@ -28,9 +28,10 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run(){
-                SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+                SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preferences), Context.MODE_PRIVATE);
 
                 String name = sharedPref.getString(getString(R.string.userPref), null);
+
                 if (name == null) {
                     Intent intent = new Intent(SplashScreen.this, WelcomeActivity.class);
                     startActivity(intent);

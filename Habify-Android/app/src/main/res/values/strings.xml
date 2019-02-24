@@ -9,4 +9,6 @@
     <string name="bodyScorePref">BodyScore</string>
     <string name="spiritScorePref">SpiritScore</string>
     <string name="progressPref">Progress</string>
+
+    <string name="preferences">Preferences</string>
 </resources>

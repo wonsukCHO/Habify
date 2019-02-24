@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backdrop"
     tools:context=".DashboardActivity">
 
     <android.support.v7.widget.RecyclerView
@@ -28,6 +29,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
         android:text="Profile"
+        android:textColor="@android:color/background_light"
         app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,8 +67,10 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_weight="1"
+            android:background="@drawable/buttonshape"
             android:onClick="generateTasks"
             android:text="Generate New Tasks"
+            android:textColor="@android:color/background_light"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -77,8 +81,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/buttonshape"
             android:onClick="generateOne"
-            android:text="Generate One New Task" />
+            android:text="Generate One New Task"
+            android:textColor="@android:color/background_light" />
     </LinearLayout>
 
     <Button
@@ -87,8 +93,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/buttonshape"
         android:onClick="retakeQuiz"
         android:text="Re-take Quiz"
+        android:textColor="@android:color/background_light"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -98,8 +106,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/buttonshape"
         android:onClick="viewProgress"
         android:text="View Progress"
+        android:textColor="@android:color/background_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

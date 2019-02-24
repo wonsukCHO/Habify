@@ -79,7 +79,7 @@ public class FormActivity extends AppCompatActivity {
         }
 
         Question cur = questions.get(current);
-        if (cur.getType().equalsIgnoreCase("INPUT")) {
+        if (cur.getType().equalsIgnoreCase("INPUT") || cur.getType().equalsIgnoreCase("AGE")) {
             textInput.setVisibility(View.VISIBLE);
             choices.setVisibility(View.INVISIBLE);
             if (cur.getAnswer() != null) {
@@ -141,7 +141,7 @@ public class FormActivity extends AppCompatActivity {
                         sScore += question.getScore();
                         break;
                     default:
-                        System.out.println("UNIDENTIFIED TYPE!");
+                        //System.out.println("UNIDENTIFIED TYPE!");
                 }
             }
 
@@ -174,7 +174,7 @@ public class FormActivity extends AppCompatActivity {
 
         choices = new ArrayList<>();
         scores = new ArrayList<>();
-        Question q0_2 = new Question("How old are you?", choices, scores, "INPUT");
+        Question q0_2 = new Question("How old are you?", choices, scores, "AGE");
 
         choices = new ArrayList<>();
         scores = new ArrayList<>();

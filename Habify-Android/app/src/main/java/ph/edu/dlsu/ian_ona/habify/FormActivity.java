@@ -84,6 +84,8 @@ public class FormActivity extends AppCompatActivity {
             choices.setVisibility(View.INVISIBLE);
             if (cur.getAnswer() != null) {
                 textInput.setText(cur.getAnswer());
+            } else {
+                textInput.setText("");
             }
         } else {
             textInput.setVisibility(View.INVISIBLE);
@@ -99,7 +101,7 @@ public class FormActivity extends AppCompatActivity {
 
     public void next(View view) {
         Question cur = questions.get(current);
-        if (cur.getType().equalsIgnoreCase("INPUT")) {
+        if (cur.getType().equalsIgnoreCase("INPUT") || cur.getType().equalsIgnoreCase("AGE")) {
             cur.setAnswer(textInput.getText().toString());
         } else {
             cur.setAnswer(choices.getSelectedItem().toString());
@@ -141,13 +143,14 @@ public class FormActivity extends AppCompatActivity {
                         sScore += question.getScore();
                         break;
                     default:
-                        //System.out.println("UNIDENTIFIED TYPE!");
+                        break;
                 }
             }
 
             editor.putInt(getString(R.string.bodyScorePref), bScore);
             editor.putInt(getString(R.string.mindScorePref), mScore);
             editor.putInt(getString(R.string.spiritScorePref), sScore);
+            editor.putInt(getString(R.string.userScorePref), 0);
             editor.commit();
 
             Intent intent = new Intent(FormActivity.this, DashboardActivity.class);

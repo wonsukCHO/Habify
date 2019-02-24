@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
@@ -21,6 +22,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class DashboardActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
+    private TextView dateTimeText;
     private Adapter adapter;
     private RecyclerView.LayoutManager manager;
     private ArrayList<Model> tasks;
@@ -33,6 +35,8 @@ public class DashboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        getSupportActionBar().hide();
 
         manager = new LinearLayoutManager(this);
         adapter = new Adapter(this);
@@ -52,6 +56,12 @@ public class DashboardActivity extends AppCompatActivity {
         textView = findViewById(R.id.textView);
         String name = sharedPref.getString(getString(R.string.userPref), null);
         textView.setText("Welcome back, " + name);
+
+        long date = System.currentTimeMillis();
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy");
+        String dateString = sdf.format(date);
+        dateTimeText = findViewById(R.id.dateTimeText);
+        dateTimeText.setText(dateString);
 
     }
 

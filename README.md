@@ -12,5 +12,5 @@ Open and run on Android Studio for the Mobile App or use the APK
 
 Application Guidelines
 Android studio for the Mobile App (Java)
-HTML/CSS for the Website (static website for information only)
+HTML/CSS with Bootstrap for the Website (static website for information only)
 All assets were made by the team using Photoshop

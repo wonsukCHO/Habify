@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public class Adapter extends RecyclerView.Adapter<Holder> {
 
-
     private ArrayList<Model> list;
     private Context context;
 
@@ -42,5 +41,16 @@ public class Adapter extends RecyclerView.Adapter<Holder> {
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    public void refreshTasks(ArrayList<Model> tasks){
+        list.clear();
+        list = tasks;
+        notifyDataSetChanged();
+    }
+
+    public void refreshOne(Model task){
+        list.add(task);
+        notifyItemInserted(list.size()-1);
     }
 }

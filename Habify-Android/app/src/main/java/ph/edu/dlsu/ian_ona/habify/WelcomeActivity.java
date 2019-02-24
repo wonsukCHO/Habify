@@ -16,14 +16,15 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
 
         getSupportActionBar().hide();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
-            Window w = getWindow();
-            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        }
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+//            Window w = getWindow();
+//            w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+//        }
     }
 
     public void getStarted(View view){
-        Intent intent = new Intent(WelcomeActivity.this, FormActivity.class);
+//        Intent intent = new Intent(WelcomeActivity.this, FormActivity.class);
+        Intent intent = new Intent(WelcomeActivity.this, DashboardActivity.class);
 
         startActivity(intent);
         finish();

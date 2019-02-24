@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -27,7 +28,6 @@ public class DashboardActivity extends AppCompatActivity {
     private ArrayList<Model> tempPhysical;
     private Model task;
     private TextView textView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,9 +56,14 @@ public class DashboardActivity extends AppCompatActivity {
 
     public void generateTasks(View view){
        generateNow();
+       adapter.refreshTasks(tasks);
     }
 
     public void generateNow(){
+        tempMind.clear();
+        tempPhysical.clear();
+        tempSoul.clear();
+        tasks.clear();
         SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preferences), Context.MODE_PRIVATE);
 
         int userScore = sharedPref.getInt(getString(R.string.userScorePref), 0);
@@ -75,13 +80,20 @@ public class DashboardActivity extends AppCompatActivity {
         } else if (spiritScore > mindScore && spiritScore > bodyScore){
             populateMind(3);
             populatePhysical(3);
+        } else {
+            populateMind(4);
+            populatePhysical(4);
+            populateSoul(4);
         }
         adapter.refreshTasks(tasks);
     }
 
     public void generateOne(View view){
+        populateSoul(5);
+        populatePhysical(5);
+        populateMind(5);
         Random rand = new Random();
-        int randNum = rand.nextInt((5 - 0) + 1) + 0;
+        int randNum = rand.nextInt((4 - 0) + 1) + 0;
         int choice = rand.nextInt((3 - 1) + 1) + 1;
         switch (choice){
             case 1:
@@ -115,8 +127,10 @@ public class DashboardActivity extends AppCompatActivity {
 //        tasks.add(t2);
 //        tasks.add(t3);
 
-        for(int i = 0; i < limit; i++){
+        for(int i = 0; i < limit-1; i++){
             tasks.add(tempMind.get(i));
+            Log.d("ADDING MIND", "here" +tempMind.get(i));
+
         }
 
     }
@@ -138,8 +152,9 @@ public class DashboardActivity extends AppCompatActivity {
 //        tasks.add(s2);
 //        tasks.add(s3);
 
-        for(int i = 0; i < limit; i++){
-            tasks.add(tempMind.get(i));
+        for(int i = 0; i < limit-1; i++){
+            tasks.add(tempSoul.get(i));
+            Log.d("ADDING SOUL", "here" +tempSoul.get(i));
         }
     }
 
@@ -160,8 +175,10 @@ public class DashboardActivity extends AppCompatActivity {
 //        tasks.add(p2);
 //        tasks.add(p3);
 
-        for(int i = 0; i < limit; i++){
+        for(int i = 0; i < limit-1; i++){
             tasks.add(tempPhysical.get(i));
+            Log.d("ADDING BODY", "here" +tempPhysical.get(i));
+
         }
     }
 

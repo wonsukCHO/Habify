@@ -63,8 +63,10 @@ public class Adapter extends RecyclerView.Adapter<Holder> {
     }
 
     public void refreshTasks(ArrayList<Model> tasks){
-        list.clear();
+        Log.d("TASK ARRIVES", "here" +tasks.toString());
+        list = new ArrayList<>();
         list = tasks;
+        Log.d("ADAPTER", "lists is " +list);
         notifyDataSetChanged();
     }
 

@@ -1,6 +1,8 @@
 package ph.edu.dlsu.ian_ona.habify;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -26,10 +28,20 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run(){
-                Intent intent = new Intent(SplashScreen.this, WelcomeActivity.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                finish();
+                SharedPreferences sharedPref = getPreferences(Context.MODE_PRIVATE);
+
+                String name = sharedPref.getString(getString(R.string.userPref), null);
+                if (name == null) {
+                    Intent intent = new Intent(SplashScreen.this, WelcomeActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                    finish();
+                } else {
+                    Intent intent = new Intent(SplashScreen.this, DashboardActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                    finish();
+                }
             }
         }, SPLASH_TIME_OUT);
     }

@@ -10,20 +10,20 @@
     <ph.edu.dlsu.ian_ona.habify.BodyTextView
         android:id="@+id/questionTextView"
         android:layout_width="335dp"
-        android:layout_height="80dp"
+        android:layout_height="100dp"
         android:layout_marginEnd="32dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="220dp"
         android:text="TextView"
         android:textColor="@android:color/background_light"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/choicesSpinner"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="22dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -39,8 +39,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="104dp"
         android:layout_marginTop="24dp"
+        android:background="@drawable/buttonshape"
         android:onClick="previous"
         android:text="Previous"
+        android:textColor="@android:color/background_light"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/choicesSpinner" />
 
@@ -51,10 +53,28 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="24dp"
+        android:background="@drawable/buttonshape"
         android:onClick="next"
         android:text="Next"
+        android:textColor="@android:color/background_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.132"
         app:layout_constraintStart_toEndOf="@+id/previousBtn"
         app:layout_constraintTop_toBottomOf="@+id/choicesSpinner" />
+
+    <EditText
+        android:id="@+id/plaintextInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionTextView" />
 </android.support.constraint.ConstraintLayout>

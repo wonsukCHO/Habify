@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Habify</string>
 
-    <string name="welcome_message">Habify is an application that caters to your well-being by helping you start habits that could benefit you based on your personality</string>
+    <string name="welcome_message">Habify is an application that caters to your well-being by helping you start habits that could benefit you based on your personality. Before we get started, tell us a little about yourself.</string>
+
+    <string name="userPref">User</string>
+    <string name="userScorePref">UserScore</string>
+    <string name="mindScorePref">MindScore</string>
+    <string name="bodyScorePref">BodyScore</string>
+    <string name="spiritScorePref">SpiritScore</string>
+    <string name="progressPref">Progress</string>
 </resources>

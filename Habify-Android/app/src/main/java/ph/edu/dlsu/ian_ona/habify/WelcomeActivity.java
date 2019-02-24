@@ -23,8 +23,8 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     public void getStarted(View view){
-//        Intent intent = new Intent(WelcomeActivity.this, FormActivity.class);
-        Intent intent = new Intent(WelcomeActivity.this, DashboardActivity.class);
+        Intent intent = new Intent(WelcomeActivity.this, FormActivity.class);
+        // Intent intent = new Intent(WelcomeActivity.this, DashboardActivity.class);
 
         startActivity(intent);
         finish();

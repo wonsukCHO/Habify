@@ -1,10 +1,17 @@
 package ph.edu.dlsu.ian_ona.habify;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -19,6 +26,7 @@ public class DashboardActivity extends AppCompatActivity {
     private ArrayList<Model> tempSoul;
     private ArrayList<Model> tempPhysical;
     private Model task;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +44,38 @@ public class DashboardActivity extends AppCompatActivity {
         tempMind = new ArrayList<>();
         tempSoul = new ArrayList<>();
         tempPhysical = new ArrayList<>();
+
+        generateNow();
+        SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preferences), Context.MODE_PRIVATE);
+
+        textView = findViewById(R.id.textView);
+        String name = sharedPref.getString(getString(R.string.userPref), null);
+        textView.setText("Welcome back, " + name);
+
     }
 
     public void generateTasks(View view){
-        populateMind(5);
+       generateNow();
+    }
+
+    public void generateNow(){
+        SharedPreferences sharedPref = getSharedPreferences(getString(R.string.preferences), Context.MODE_PRIVATE);
+
+        int userScore = sharedPref.getInt(getString(R.string.userScorePref), 0);
+        int mindScore = sharedPref.getInt(getString(R.string.mindScorePref), 0);
+        int bodyScore = sharedPref.getInt(getString(R.string.bodyScorePref), 0);
+        int spiritScore = sharedPref.getInt(getString(R.string.spiritScorePref), 0);
+
+        if(mindScore > bodyScore && mindScore > spiritScore){
+            populatePhysical(3);
+            populateSoul(3);
+        } else if (bodyScore > mindScore && mindScore > spiritScore){
+            populateMind(3);
+            populateSoul(3);
+        } else if (spiritScore > mindScore && spiritScore > bodyScore){
+            populateMind(3);
+            populatePhysical(3);
+        }
         adapter.refreshTasks(tasks);
     }
 
@@ -128,4 +164,18 @@ public class DashboardActivity extends AppCompatActivity {
             tasks.add(tempPhysical.get(i));
         }
     }
+
+    public void viewProgress(View view){
+        Intent intent = new Intent(DashboardActivity.this, ViewProgressActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+    }
+
+    public void retakeQuiz(View view){
+        Intent intent = new Intent(DashboardActivity.this, FormActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
+    }
+
 }

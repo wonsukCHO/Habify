@@ -10,7 +10,7 @@
     <ph.edu.dlsu.ian_ona.habify.BodyTextView
         android:id="@+id/questionTextView"
         android:layout_width="335dp"
-        android:layout_height="70dp"
+        android:layout_height="90dp"
         android:layout_marginEnd="32dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="190dp"
